@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as firebase from './database/firebase';
 
+import Header from './components/Header';
 // import Loading from './components/Loading';
 import ColorList from './containers/ColorList';
 
@@ -35,7 +36,8 @@ export default class App extends React.Component {
   render() {
     const { colors } = this.state;
     return (
-      <div>
+      <div className="wtc">
+        <Header />
         <ColorList colors={colors} />
       </div>
     );
