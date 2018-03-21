@@ -6,6 +6,6 @@ interface Color {
   name: string;
 }
 
-const ColorItem: React.SFC<Color> = (props: Color) => <div>asdf</div>;
+const ColorItem: React.SFC<Color> = (props: Color) => <div>asd2f</div>;
 
 export default ColorItem;
