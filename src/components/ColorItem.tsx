@@ -7,7 +7,10 @@ interface Color {
 }
 
 const ColorItem: React.SFC<Color> = (props: Color) => (
-  <div style={{ backgroundColor: props.hexCode, color: props.viewColor }}>
+  <div
+    className="wtc-color-item"
+    style={{ backgroundColor: props.hexCode, color: props.viewColor }}
+  >
     {props.name}
   </div>
 );

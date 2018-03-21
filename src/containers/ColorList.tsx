@@ -23,6 +23,6 @@ export default class ColorList extends React.Component<ColorsProps> {
   }
 
   render() {
-    return <div>{this.mapToComponent()}</div>;
+    return <div className="wtc-color-list">{this.mapToComponent()}</div>;
   }
 }

@@ -1,3 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
 
+.wtc-color-item {
+  float: left;
+  padding: 7% 0;
+  width: 12.5%;
+  text-align: center; }
+  @media screen and (max-width: 1100px) {
+    .wtc-color-item {
+      width: 33.3333%;
+      padding: 20% 0; } }
+  @media screen and (max-width: 700px) {
+    .wtc-color-item {
+      width: 50%;
+      padding: 25% 0; } }
+
+.wtc-color-list:after {
+  content: '';
+  display: block;
+  clear: both; }
 
 /*# sourceMappingURL=index.css.map */

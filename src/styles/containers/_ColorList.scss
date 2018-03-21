@@ -1,0 +1,7 @@
+.wtc-color-list {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
