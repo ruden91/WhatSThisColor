@@ -1,8 +1,14 @@
 import * as React from 'react';
 import * as firebase from './database/firebase';
 
+interface ColorData {
+  hexCode: string;
+  name: string;
+  viewColor: string;
+}
+
 interface State {
-  colors: Array<Object>;
+  colors: Array<ColorData>;
 }
 export default class App extends React.Component {
   state: State = {
@@ -20,16 +26,26 @@ export default class App extends React.Component {
     });
   }
 
-  // mapToComponent() {
-  //   const { colors } = this.state;
-  //   return colors.map(color => (
-  //     <li style={{ backgroundColor: color.hexCode, color: color.viewColor }}>
-  //       {color.name}
-  //     </li>
-  //   ));
-  // }
+  mapToComponent() {
+    const { colors } = this.state;
+    return colors.map((color, index) => (
+      <li
+        style={{
+          backgroundColor: color.hexCode,
+          color: color.viewColor
+        }}
+        key={index}
+      >
+        {color.name}
+      </li>
+    ));
+  }
 
   render() {
-    return <div>{/* <ul>{this.mapToComponent()}</ul> */}</div>;
+    return (
+      <div>
+        <ul>{this.mapToComponent()}</ul>
+      </div>
+    );
   }
 }
