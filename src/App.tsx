@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as firebase from './database/firebase';
 
-import Loading from './components/Loading';
-import ColorItem from './components/ColorItem';
+// import Loading from './components/Loading';
+import ColorList from './containers/ColorList';
+
 interface ColorData {
   hexCode: string;
   name: string;
@@ -31,19 +32,11 @@ export default class App extends React.Component {
     });
   }
 
-  mapToComponent() {
-    const { colors, loading } = this.state;
-    if (loading) {
-      return <Loading />;
-    }
-
-    return colors.map((color, index) => <ColorItem {...color} key={index} />);
-  }
-
   render() {
+    const { colors } = this.state;
     return (
       <div>
-        <div>{this.mapToComponent()}</div>
+        <ColorList colors={colors} />
       </div>
     );
   }
