@@ -2,9 +2,10 @@ import * as React from 'react';
 import * as firebase from './database/firebase';
 
 import Header from './components/Header';
-// import Loading from './components/Loading';
+import Loading from './components/Loading';
 import ColorList from './containers/ColorList';
 
+// import Scrollbars from 'react-custom-scrollbars';
 interface ColorData {
   hexCode: string;
   name: string;
@@ -34,11 +35,16 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { colors } = this.state;
+    const { colors, loading } = this.state;
     return (
       <div className="wtc">
-        <Header />
-        <ColorList colors={colors} />
+        {loading && <Loading />}
+        {!loading && (
+          <div>
+            <Header />
+            <ColorList colors={colors} />
+          </div>
+        )}
       </div>
     );
   }

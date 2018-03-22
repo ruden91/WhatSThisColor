@@ -17,6 +17,9 @@
       width: 50%;
       padding: 25% 0; } }
 
+.wtc-color-item__clipboard-container {
+  cursor: pointer; }
+
 .wtc-color-list:after {
   content: '';
   display: block;

@@ -1,5 +1,11 @@
 import * as React from 'react';
 
-const Header: React.SFC = () => <header>header</header>;
+import ColorFilters from './ColorFilters';
+
+const Header: React.SFC = () => (
+  <header>
+    <ColorFilters />
+  </header>
+);
 
 export default Header;
