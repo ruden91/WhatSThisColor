@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ColorItem from '../components/ColorItem';
 import * as CopyToClipboard from 'react-copy-to-clipboard';
-console.log(CopyToClipboard);
+
 interface Color {
   hexCode: string;
   name: string;
