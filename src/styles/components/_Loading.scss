@@ -1,0 +1,98 @@
+$accent-base: #8eeec0;
+$accents: (
+  pink: adjust-hue($accent-base, -180%),
+  orange: adjust-hue($accent-base, -120%),
+  green: adjust-hue($accent-base, -60%),
+  cyan: $accent-base,
+  blue: adjust-hue($accent-base, 60%),
+  purple: adjust-hue($accent-base, 120%)
+);
+@mixin generate-accents {
+  @each $name, $value in $accents {
+    .accent-#{$name} {
+      background-color: $value;
+    }
+  }
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loader {
+    @include generate-accents;
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    .dot {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 5px;
+      }
+    }
+    /* 4 x 6 = 24 */
+    @for $i from 1 through 6 {
+      .dot:nth-child(#{$i}) {
+        $delay: 0.4 * $i;
+        animation: animate-loader-dots
+          2.4s
+          linear -#{$delay}s
+          infinite
+          backwards;
+      }
+    }
+  }
+}
+
+// TODO: Write this in a nicer way
+// 100/6 * (1,2,3,4,5,6)
+@keyframes animate-loader-dots {
+  0% {
+    top: 20%;
+    left: 50%;
+    transform: scale(1);
+  }
+  16% {
+    top: 35%;
+    left: 75%;
+    transform: scale(3);
+  }
+  33% {
+    top: 65%;
+    left: 75%;
+    transform: scale(1);
+  }
+  50% {
+    top: 80%;
+    left: 50%;
+    transform: scale(3);
+  }
+  66% {
+    top: 65%;
+    left: 25%;
+    transform: scale(1);
+  }
+  83% {
+    top: 35%;
+    left: 25%;
+    transform: scale(3);
+  }
+  100% {
+    top: 20%;
+    left: 50%;
+    transform: scale(1);
+  }
+}

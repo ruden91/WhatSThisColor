@@ -42,6 +42,83 @@
       width: 40px;
       margin-right: 15px; }
 
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .loader-overlay .loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    /* 4 x 6 = 24 */ }
+    .loader-overlay .loader .accent-pink {
+      background-color: #ee8ebc; }
+    .loader-overlay .loader .accent-orange {
+      background-color: #eec08e; }
+    .loader-overlay .loader .accent-green {
+      background-color: #bcee8e; }
+    .loader-overlay .loader .accent-cyan {
+      background-color: #8eeec0; }
+    .loader-overlay .loader .accent-blue {
+      background-color: #8ebcee; }
+    .loader-overlay .loader .accent-purple {
+      background-color: #c08eee; }
+    .loader-overlay .loader .dot {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border-radius: 50%; }
+      .loader-overlay .loader .dot:before {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 5px; }
+    .loader-overlay .loader .dot:nth-child(1) {
+      animation: animate-loader-dots 2.4s linear -0.4s infinite backwards; }
+    .loader-overlay .loader .dot:nth-child(2) {
+      animation: animate-loader-dots 2.4s linear -0.8s infinite backwards; }
+    .loader-overlay .loader .dot:nth-child(3) {
+      animation: animate-loader-dots 2.4s linear -1.2s infinite backwards; }
+    .loader-overlay .loader .dot:nth-child(4) {
+      animation: animate-loader-dots 2.4s linear -1.6s infinite backwards; }
+    .loader-overlay .loader .dot:nth-child(5) {
+      animation: animate-loader-dots 2.4s linear -2s infinite backwards; }
+    .loader-overlay .loader .dot:nth-child(6) {
+      animation: animate-loader-dots 2.4s linear -2.4s infinite backwards; }
+
+@keyframes animate-loader-dots {
+  0% {
+    top: 20%;
+    left: 50%;
+    transform: scale(1); }
+  16% {
+    top: 35%;
+    left: 75%;
+    transform: scale(3); }
+  33% {
+    top: 65%;
+    left: 75%;
+    transform: scale(1); }
+  50% {
+    top: 80%;
+    left: 50%;
+    transform: scale(3); }
+  66% {
+    top: 65%;
+    left: 25%;
+    transform: scale(1); }
+  83% {
+    top: 35%;
+    left: 25%;
+    transform: scale(3); }
+  100% {
+    top: 20%;
+    left: 50%;
+    transform: scale(1); } }
 .wtc-color-item__clipboard-container {
   cursor: pointer; }
 
