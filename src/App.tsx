@@ -4,6 +4,7 @@ import * as firebase from './database/firebase';
 import Loading from './components/Loading';
 import ColorView from './components/ColorView';
 import Footer from './components/Footer';
+import { random } from 'lodash';
 // import Scrollbars from 'react-custom-scrollbars';
 interface ColorData {
   hexCode: string;
@@ -14,17 +15,18 @@ interface ColorData {
 interface State {
   colors: Array<ColorData>;
   loading: Boolean;
+  selectedColor: ColorData;
 }
-const sample = {
-  hexCode: '#483D8B',
-  name: 'DarkSlateBlue',
-  viewColor: '#fff'
-};
 
 export default class App extends React.Component {
   state: State = {
     colors: [],
-    loading: true
+    loading: true,
+    selectedColor: {
+      hexCode: '',
+      name: '',
+      viewColor: ''
+    }
   };
 
   componentDidMount() {
@@ -35,18 +37,31 @@ export default class App extends React.Component {
           colors: snap.val(),
           loading: false
         });
+        this.getRandomColorItem();
       }
     });
   }
 
+  getRandomColorItem = (): void => {
+    const { colors } = this.state;
+    const randomNumber = random(0, colors.length);
+
+    this.setState({
+      selectedColor: colors[randomNumber]
+    });
+  };
+
   render() {
-    const { loading } = this.state;
+    const { loading, selectedColor } = this.state;
     return (
       <div className="wtc">
         {loading && <Loading />}
         {!loading && (
           <div>
-            <ColorView {...sample} />
+            <ColorView
+              {...selectedColor}
+              getRandomColorItem={this.getRandomColorItem}
+            />
             <Footer />
           </div>
         )}

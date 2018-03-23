@@ -150,7 +150,8 @@ table {
   position: relative;
   background-color: #009ac8;
   height: calc(100vh - 20px);
-  margin: 10px; }
+  margin: 10px;
+  transition: all 0.35s ease-in-out; }
   .wtc-color-view p {
     font-size: 80px;
     color: #222;

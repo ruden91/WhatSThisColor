@@ -6,6 +6,7 @@ interface Color {
   hexCode: string;
   name: string;
   viewColor: string;
+  getRandomColorItem: (() => void);
 }
 
 interface ColorListState {
@@ -34,7 +35,7 @@ export default class ColorView extends React.Component<Color, ColorListState> {
   };
 
   render() {
-    const { hexCode, name, viewColor } = this.props;
+    const { hexCode, name, viewColor, getRandomColorItem } = this.props;
     return (
       <div
         className="wtc-color-view"
@@ -56,7 +57,7 @@ export default class ColorView extends React.Component<Color, ColorListState> {
               </Link>
             </li>
             <li>
-              <a href="#">
+              <a href="#" onClick={getRandomColorItem}>
                 <i className="fas fa-random" />
               </a>
             </li>
