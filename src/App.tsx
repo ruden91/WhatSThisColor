@@ -18,7 +18,23 @@ interface State {
   selectedColor: ColorData;
 }
 
-export default class App extends React.Component {
+interface AppProps {
+  match?: {
+    path: string;
+    params: {
+      colorName: string;
+    };
+  };
+}
+// {
+//   isExact: Boolean;
+//   params: {
+//     colorName: string;
+//   };
+//   path: string;
+//   url: string;
+// };
+export default class App extends React.Component<AppProps, State> {
   state: State = {
     colors: [],
     loading: true,
@@ -44,10 +60,14 @@ export default class App extends React.Component {
 
   getRandomColorItem = (): void => {
     const { colors } = this.state;
-    const randomNumber = random(0, colors.length);
+    // url param에 컬러이름이 존재하면 해당 컬러를 선택하고 아니면 랜덤선택!
+    let paramColor = this.props.match!.params.colorName;
+    let selectedColor = paramColor
+      ? colors.filter(color => color.name === paramColor)[0]
+      : colors[random(0, colors.length)];
 
     this.setState({
-      selectedColor: colors[randomNumber]
+      selectedColor
     });
   };
 

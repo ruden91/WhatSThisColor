@@ -128,6 +128,9 @@ q:before, q:after {
   content: '';
   content: none; }
 
+a {
+  text-decoration: none; }
+
 table {
   border-collapse: collapse;
   border-spacing: 0; }
@@ -317,7 +320,8 @@ table {
     color: cadetblue;
     font-size: 12px;
     padding: 15px 10px;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: all 0.35s ease-in-out; }
     .wtc-color-filters ul li.is-active, .wtc-color-filters ul li:hover {
       background-color: cadetblue;
       color: #fff; }

@@ -10,6 +10,7 @@ ReactDOM.render(
     <Switch>
       <Route exact={true} path="/" component={App} />
       <Route exact={true} path="/grid" component={Grid} />
+      <Route path="/color/:colorName" component={App} />
     </Switch>
   </BrowserRouter>,
   document.querySelector('#root') as HTMLElement

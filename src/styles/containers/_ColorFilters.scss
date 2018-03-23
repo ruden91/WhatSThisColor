@@ -13,6 +13,7 @@
       font-size: 12px;
       padding: 15px 10px;
       cursor: pointer;
+      transition: all 0.35s ease-in-out;
       &.is-active,
       &:hover {
         background-color: cadetblue;

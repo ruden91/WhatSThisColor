@@ -27,7 +27,6 @@ export default class ColorView extends React.Component<Color, ColorListState> {
   };
 
   handleCopy = (text: string, result: Boolean) => {
-    console.log(text);
     this.setState({
       copied: true,
       copiedColor: text
@@ -46,12 +45,9 @@ export default class ColorView extends React.Component<Color, ColorListState> {
   render() {
     const { hexCode, name, viewColor, getRandomColorItem } = this.props;
     return (
-      <div
-        className="wtc-color-view"
-        style={{ backgroundColor: hexCode, color: viewColor }}
-      >
+      <div className="wtc-color-view" style={{ backgroundColor: hexCode }}>
         <div>
-          <p>{name}</p>
+          <p style={{ color: viewColor }}>{name}</p>
           <ul>
             <li>
               <CopyToClipboard text={hexCode} onCopy={this.handleCopy}>
@@ -61,12 +57,12 @@ export default class ColorView extends React.Component<Color, ColorListState> {
               </CopyToClipboard>
             </li>
             <li>
-              <Link to="grid">
+              <Link to="/grid">
                 <i className="fas fa-th-list" />
               </Link>
             </li>
             <li>
-              <a href="#" onClick={getRandomColorItem}>
+              <a href="javascript:;" onClick={getRandomColorItem}>
                 <i className="fas fa-random" />
               </a>
             </li>
