@@ -1,0 +1,23 @@
+.wtc-color-filters {
+  p {
+    display: inline-block;
+    font-size: 12px;
+    padding-right: 10px;
+  }
+
+  ul {
+    display: inline-block;
+    li {
+      display: inline-block;
+      color: cadetblue;
+      font-size: 12px;
+      padding: 15px 10px;
+      cursor: pointer;
+      &.is-active,
+      &:hover {
+        background-color: cadetblue;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -136,7 +136,14 @@ table {
   float: left;
   padding: 7% 0;
   width: 12.5%;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
+  .wtc-color-item span {
+    font-size: 26px;
+    opacity: 0;
+    transition: all 0.35s ease-in-out; }
+  .wtc-color-item:hover span {
+    opacity: 1; }
   @media screen and (max-width: 1100px) {
     .wtc-color-item {
       width: 33.3333%;
@@ -144,7 +151,9 @@ table {
   @media screen and (max-width: 700px) {
     .wtc-color-item {
       width: 50%;
-      padding: 25% 0; } }
+      padding: 25% 0; }
+      .wtc-color-item span {
+        opacity: 1; } }
 
 .wtc-color-view {
   position: relative;
@@ -258,6 +267,20 @@ table {
     top: 20%;
     left: 50%;
     transform: scale(1); } }
+.wtc-header:after {
+  content: '';
+  display: block;
+  clear: both; }
+.wtc-header .wtc-header__main-link {
+  padding: 15px;
+  float: left;
+  text-decoration: none;
+  color: cadetblue;
+  font-size: 12px; }
+.wtc-header .wtc-header__right-content {
+  float: right;
+  padding-right: 10px; }
+
 .wtc-footer {
   position: absolute;
   width: 100%;
@@ -282,5 +305,21 @@ table {
   content: '';
   display: block;
   clear: both; }
+
+.wtc-color-filters p {
+  display: inline-block;
+  font-size: 12px;
+  padding-right: 10px; }
+.wtc-color-filters ul {
+  display: inline-block; }
+  .wtc-color-filters ul li {
+    display: inline-block;
+    color: cadetblue;
+    font-size: 12px;
+    padding: 15px 10px;
+    cursor: pointer; }
+    .wtc-color-filters ul li.is-active, .wtc-color-filters ul li:hover {
+      background-color: cadetblue;
+      color: #fff; }
 
 /*# sourceMappingURL=index.css.map */

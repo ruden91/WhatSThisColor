@@ -16,9 +16,9 @@ interface ColorListState {
 
 export default class ColorView extends React.Component<Color, ColorListState> {
   public static defaultProps: Partial<Color> = {
-    hexCode: '#009ac8',
-    name: 'YellowGreen',
-    viewColor: '#fff'
+    hexCode: '',
+    name: '',
+    viewColor: ''
   };
 
   state: ColorListState = {
@@ -33,6 +33,15 @@ export default class ColorView extends React.Component<Color, ColorListState> {
       copiedColor: text
     });
   };
+
+  componentDidMount() {
+    const { hexCode, viewColor, name, getRandomColorItem } = this.props;
+
+    // 선택된 컬러가 없을 경우 getRandomColorItem 함수를 통해 랜덤 컬러 값을 가져온다.
+    if (hexCode === '' && viewColor === '' && name === '') {
+      getRandomColorItem();
+    }
+  }
 
   render() {
     const { hexCode, name, viewColor, getRandomColorItem } = this.props;

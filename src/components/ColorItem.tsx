@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { Link } from 'react-router-dom';
 interface Color {
   hexCode: string;
   viewColor: string;
@@ -11,7 +11,9 @@ const ColorItem: React.SFC<Color> = (props: Color) => (
     className="wtc-color-item"
     style={{ backgroundColor: props.hexCode, color: props.viewColor }}
   >
-    {props.name}
+    <Link to="color">
+      <span>{props.name}</span>
+    </Link>
   </div>
 );
 
