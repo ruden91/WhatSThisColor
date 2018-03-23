@@ -1,9 +1,9 @@
 import * as React from 'react';
-import * as firebase from './database/firebase';
+import * as firebase from '../database/firebase';
 
-import Loading from './components/Loading';
-import ColorView from './components/ColorView';
-// import Scrollbars from 'react-custom-scrollbars';
+import Header from '../components/Header';
+import ColorList from './ColorList';
+
 interface ColorData {
   hexCode: string;
   name: string;
@@ -14,7 +14,8 @@ interface State {
   colors: Array<ColorData>;
   loading: Boolean;
 }
-export default class App extends React.Component {
+
+export default class Grid extends React.Component {
   state: State = {
     colors: [],
     loading: true
@@ -33,11 +34,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { loading } = this.state;
+    const { colors } = this.state;
     return (
-      <div className="wtc">
-        {loading && <Loading />}
-        {!loading && <ColorView />}
+      <div className="wtc-grid">
+        <Header />
+        <ColorList colors={colors} />
       </div>
     );
   }
