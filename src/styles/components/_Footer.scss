@@ -1,0 +1,23 @@
+.wtc-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+  padding: 0 20px;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .wtc-footer__right-side-content {
+    float: right;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

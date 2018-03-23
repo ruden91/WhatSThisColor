@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as firebase from '../database/firebase';
 
+import Loading from '../components/Loading';
 import Header from '../components/Header';
 import ColorList from './ColorList';
 
@@ -22,6 +23,7 @@ export default class Grid extends React.Component {
   };
 
   componentDidMount() {
+    console.log('asdnklf');
     firebase.database.ref('colorDataSet').on('value', snap => {
       // null이 아닐 경우 snap에서 값을 가져온다.
       if (snap) {
@@ -34,11 +36,16 @@ export default class Grid extends React.Component {
   }
 
   render() {
-    const { colors } = this.state;
+    const { colors, loading } = this.state;
     return (
       <div className="wtc-grid">
-        <Header />
-        <ColorList colors={colors} />
+        {loading && <Loading />}
+        {!loading && (
+          <div>
+            <Header />
+            <ColorList colors={colors} />
+          </div>
+        )}
       </div>
     );
   }

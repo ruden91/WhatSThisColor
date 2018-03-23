@@ -1,21 +1,68 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import * as CopyToClipboard from 'react-copy-to-clipboard';
 
-// interface Color {
-//   hexCode: string;
-//   name: string;
-//   viewColor: string;
-// }
-const ColorView: React.SFC<{}> = (props: {}) => (
-  <div className="wtc-color-view">
-    <div>
-      <p>YellowGreen</p>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </div>
-  </div>
-);
+interface Color {
+  hexCode: string;
+  name: string;
+  viewColor: string;
+}
 
-export default ColorView;
+interface ColorListState {
+  copied: Boolean;
+  copiedColor: string;
+}
+
+export default class ColorView extends React.Component<Color, ColorListState> {
+  public static defaultProps: Partial<Color> = {
+    hexCode: '#009ac8',
+    name: 'YellowGreen',
+    viewColor: '#fff'
+  };
+
+  state: ColorListState = {
+    copied: false,
+    copiedColor: ''
+  };
+
+  handleCopy = (text: string, result: Boolean) => {
+    console.log(text);
+    this.setState({
+      copied: true,
+      copiedColor: text
+    });
+  };
+
+  render() {
+    const { hexCode, name, viewColor } = this.props;
+    return (
+      <div
+        className="wtc-color-view"
+        style={{ backgroundColor: hexCode, color: viewColor }}
+      >
+        <div>
+          <p>{name}</p>
+          <ul>
+            <li>
+              <CopyToClipboard text={hexCode} onCopy={this.handleCopy}>
+                <a href="#">
+                  <i className="fas fa-copy" />
+                </a>
+              </CopyToClipboard>
+            </li>
+            <li>
+              <Link to="grid">
+                <i className="fas fa-th-list" />
+              </Link>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fas fa-random" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
