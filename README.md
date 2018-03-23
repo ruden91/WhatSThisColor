@@ -12,6 +12,13 @@ WhatSThisColor 는 이름을 가지고 있는 컬러들의 코드값을 받을 �
 * [Webpack](https://webpack.js.org/) - A module bundler for Javascript
 * [Typescript](http://www.typescriptlang.org/) -TypeScript is a typed superset of Javascript that compiles to plain Javascript
 
+### Future Ideas
+
+* [x] * 색상별 필터링
+* [x] * 커스텀 alert
+* [x] * 랜덤 컬러
+* [x] * copy hex code
+
 ### Disclaimer
 
 This program should only be used on non-copyrighted material.
