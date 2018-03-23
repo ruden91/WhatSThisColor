@@ -5,6 +5,12 @@ import Loading from './components/Loading';
 import ColorView from './components/ColorView';
 import Footer from './components/Footer';
 import { random } from 'lodash';
+import Alert from 'react-s-alert';
+// mandatory
+import 'react-s-alert/dist/s-alert-default.css';
+
+// optional - you can choose the effect you want
+import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
 // import Scrollbars from 'react-custom-scrollbars';
 interface ColorData {
   hexCode: string;
@@ -26,14 +32,6 @@ interface AppProps {
     };
   };
 }
-// {
-//   isExact: Boolean;
-//   params: {
-//     colorName: string;
-//   };
-//   path: string;
-//   url: string;
-// };
 export default class App extends React.Component<AppProps, State> {
   state: State = {
     colors: [],
@@ -59,6 +57,9 @@ export default class App extends React.Component<AppProps, State> {
   }
 
   getRandomColorItem = (): void => {
+    // let shuffleCheck =
+    //   this.state.selectedColor.name === '' &&
+    //   typeof this.props.match!.params.colorName === 'string';
     const { colors } = this.state;
     // url param에 컬러이름이 존재하면 해당 컬러를 선택하고 아니면 랜덤선택!
     let paramColor = this.props.match!.params.colorName;
@@ -85,6 +86,7 @@ export default class App extends React.Component<AppProps, State> {
             <Footer />
           </div>
         )}
+        <Alert stack={{ limit: 1 }} />
       </div>
     );
   }

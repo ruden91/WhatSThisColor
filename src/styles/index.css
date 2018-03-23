@@ -135,6 +135,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.s-alert-info {
+  background-color: cadetblue !important; }
+
 .wtc-color-item {
   float: left;
   padding: 7% 0;
@@ -312,7 +315,8 @@ table {
 .wtc-color-filters p {
   display: inline-block;
   font-size: 12px;
-  padding-right: 10px; }
+  padding-right: 10px;
+  padding-left: 15px; }
 .wtc-color-filters ul {
   display: inline-block; }
   .wtc-color-filters ul li {

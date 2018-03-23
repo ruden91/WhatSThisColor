@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as CopyToClipboard from 'react-copy-to-clipboard';
-
+import Alert from 'react-s-alert';
 interface Color {
   hexCode: string;
   name: string;
@@ -27,9 +27,16 @@ export default class ColorView extends React.Component<Color, ColorListState> {
   };
 
   handleCopy = (text: string, result: Boolean) => {
+    let message = `${text} 컬러를 복사했습니다.`;
     this.setState({
       copied: true,
       copiedColor: text
+    });
+
+    Alert.info(message, {
+      position: 'top-right',
+      effect: 'bouncyflip',
+      timeout: 3500
     });
   };
 
